@@ -59,6 +59,8 @@
                 <data android:mimeType="video/x-ms-asf" />
                 <data android:mimeType="video/x-ms-wmv" />
                 <data android:mimeType="video/mpeg" />
+                <data android:mimeType="video/quicktime" />
+                <data android:mimeType="video/x-matroska" />
              </intent-filter>
              <intent-filter>
                 !-- HTTP live support -->
@@ -135,6 +137,8 @@
                 <data android:mimeType="video/x-ms-asf" />
                 <data android:mimeType="video/x-ms-wmv" />
                 <data android:mimeType="video/mpeg" />
+                <data android:mimeType="video/quicktime" />
+                <data android:mimeType="video/x-matroska" />
             </intent-filter>
             <!-- We do NOT support the PICK intent, we add these intent-filter for
                  backward compatibility. Handle it as GET_CONTENT. -->
