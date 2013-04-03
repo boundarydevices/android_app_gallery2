@@ -175,19 +175,25 @@ public class TrimVideo extends Activity implements
     // to be updated immediately.
     private int setProgress() {
         mVideoPosition = mVideoView.getCurrentPosition();
+
+        //seek position is not accurate since video needs to start playback from key frame
+        //the actual position after seek may be earlier or later than the wanted position
+        //so remove these code to avoid looping endlessly
+
         // If the video position is smaller than the starting point of trimming,
         // correct it.
-        if (mVideoPosition < mTrimStartTime) {
-            mVideoView.seekTo(mTrimStartTime);
-            mVideoPosition = mTrimStartTime;
-        }
+        //if (mVideoPosition < mTrimStartTime) {
+        //    mVideoView.seekTo(mTrimStartTime);
+        //    mVideoPosition = mTrimStartTime;
+        //}
+
         // If the position is bigger than the end point of trimming, show the
         // replay button and pause.
         if (mVideoPosition >= mTrimEndTime && mTrimEndTime > 0) {
-            if (mVideoPosition > mTrimEndTime) {
-                mVideoView.seekTo(mTrimEndTime);
-                mVideoPosition = mTrimEndTime;
-            }
+           //if (mVideoPosition > mTrimEndTime) {
+           //    mVideoView.seekTo(mTrimEndTime);
+           //    mVideoPosition = mTrimEndTime;
+           //}
             mController.showEnded();
             mVideoView.pause();
         }
