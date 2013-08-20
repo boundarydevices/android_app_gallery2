@@ -686,6 +686,8 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
             mCurrentEditor.detach();
         }
         mCurrentEditor = mEditorPlaceHolder.showEditor(representation.getEditorId());
+        if (mCurrentEditor == null)
+            mCurrentEditor = mEditorPlaceHolder.showEditor(EditorTinyPlanet.ID);
         loadEditorPanel(representation, mCurrentEditor);
     }
 
