@@ -61,12 +61,16 @@ public class DisableCameraReceiver extends BroadcastReceiver {
     private boolean hasBackCamera() {
         int n = android.hardware.Camera.getNumberOfCameras();
         CameraInfo info = new CameraInfo();
-        for (int i = 0; i < n; i++) {
-            android.hardware.Camera.getCameraInfo(i, info);
-            if (info.facing == CameraInfo.CAMERA_FACING_BACK) {
-                Log.i(TAG, "back camera found: " + i);
-                return true;
+        try {
+            for (int i = 0; i < n; i++) {
+                android.hardware.Camera.getCameraInfo(i, info);
+                if (info.facing == CameraInfo.CAMERA_FACING_BACK) {
+                    Log.i(TAG, "back camera found: " + i);
+                    return true;
+                }
             }
+        } catch (Exception e) {
+            Log.e(TAG, "Camera Info is unavailable for queries");
         }
         Log.i(TAG, "no back camera");
         return false;
